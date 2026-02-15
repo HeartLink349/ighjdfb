@@ -234,7 +234,7 @@
     .video-container{
       width: 100%;
       max-width: 380px;
-      margin-top: 25px;
+      margin: 25px 0;
       border-radius: 22px;
       overflow: hidden;
       border: 2px solid var(--pink);
@@ -443,6 +443,14 @@
               <video id="myVideo" controls src="https://k.top4top.io/m_3697mz0ak1.mp4"></video>
             </div>
 
+            <div class="video-container">
+              <video id="myVideo2" controls src="https://a.top4top.io/m_3697wz77j1.mp4"></video>
+            </div>
+
+            <div class="grid">
+               <figure class="imgcard"><div class="imgwrap"><img src="https://d.top4top.io/p_369711w6b1.jpg"></div></figure>
+            </div>
+
             <div class="cta">
               <button class="btn" id="msgBtn">
                 دوسي متستعجليش😂❤
@@ -480,11 +488,17 @@
     const toast = document.getElementById("toast");
     const audio = document.getElementById("audio");
     const myVideo = document.getElementById("myVideo");
+    const myVideo2 = document.getElementById("myVideo2");
     const playBtn = document.getElementById("playBtn");
 
-    // التحكم المتبادل بين الفيديو والأغنية
-    myVideo.onplay = () => audio.pause();
-    myVideo.onpause = () => { if(page2.classList.contains("active")) audio.play(); };
+    // التحكم المتبادل بين الفيديوهات والأغنية
+    const handleVideoPlay = () => audio.pause();
+    const handleVideoPause = () => { if(page2.classList.contains("active")) audio.play(); };
+
+    myVideo.onplay = handleVideoPlay;
+    myVideo.onpause = handleVideoPause;
+    myVideo2.onplay = handleVideoPlay;
+    myVideo2.onpause = handleVideoPause;
 
     function showToast(){
       toast.classList.add("show");
